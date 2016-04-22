@@ -7,6 +7,8 @@ runSequence = require('run-sequence');
 
 uglify = require('gulp-uglify');
 
+var pump = require('pump');
+
 minifyCss = require('gulp-minify-css');
 
 del = require('del');
@@ -18,19 +20,32 @@ gulp.task('default', function(callback) {
 });
 
 gulp.task('clean', function(callback) {
-  return del(['./disk/'], callback);
+  return del(['./dist/'], callback);
 });
 
 gulp.task('build', function(callback) {
   return runSequence(['copy', 'miniJS', 'miniCss'], callback);
+  //return runSequence(['copy'] callback);
 });
 
 gulp.task('copy', function() {
   return gulp.src('./src/**/*.*').pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('miniJS', function() {
-  return gulp.src('./src/**/*.js').pipe(uglify()).pipe(gulp.dest('./dist'));
+// gulp.task('miniJS', function() {
+//   return gulp.src('./src/**/*.js').pipe(uglify()).pipe(gulp.dest('./dist'));
+// });
+
+//using change from pipe to pump, fix the nodejs streams issue.
+//https://github.com/terinjokes/gulp-uglify/tree/master/docs/why-use-pump
+gulp.task('miniJS', function(cb) {
+  pump([
+        gulp.src('./src/*.js'),
+        uglify(),
+        gulp.dest('./dist')
+    ],
+    cb
+  );
 });
 
 gulp.task('miniCss', function() {
