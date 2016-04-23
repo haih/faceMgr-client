@@ -1,0 +1,13 @@
+<div class="messagebox login-box" ng-class="{loading: loading}">
+  <div class="messagebox-small" ng-class="checkForIeWorkaround()">
+    <i class="icon icon-2x icon-cisco-logo messagebox-heading"></i>
+    <div class="h3" translate="loginPage.title"></div>
+    <div ng-show="result">
+      <div class="results alert alert-danger" ng-bind-html="result"></div>
+    </div>
+    <form novalidate name="loginForm" class="typeahead-group" autocomplete="off">
+      <input type="username" class="underline" name="email" ng-model="email" placeholder="Email Address" required focus-on ng-keypress="username($event.which)">
+      <input type="email" class="underline" name="email" ng-model="email" placeholder="Email Address" required focus-on ng-keypress="login($event.which)">
+    </form>
+  </div>
+</div>
