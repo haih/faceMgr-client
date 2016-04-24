@@ -30,7 +30,8 @@ angular.module('faceMgrClientApp', ['ui.router'])
 
         .state("login",{
             url:"/login",
-            templateUrl:'login/login.html'
+            templateUrl:'login/login.html',
+            controller: 'LoginCtrl'
         })
 
         .state('about', {

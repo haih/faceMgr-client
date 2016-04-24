@@ -1,13 +1,31 @@
-<div class="messagebox login-box" ng-class="{loading: loading}">
-  <div class="messagebox-small" ng-class="checkForIeWorkaround()">
-    <i class="icon icon-2x icon-cisco-logo messagebox-heading"></i>
-    <div class="h3" translate="loginPage.title"></div>
-    <div ng-show="result">
-      <div class="results alert alert-danger" ng-bind-html="result"></div>
+<!DOCTYPE html>
+<html ng-app="faceMgrClientApp" >
+<head>
+  <title>人脸识别管理系统</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="login/ui-login.css"> 
+</head>
+<body ng-controller="LoginCtrl">
+<div>
+<form ng-submit="loginForm()">
+      <div class="loginformWrap" style="position:relative;left:-20px">
+      账号名： 
+      <input placeholder="请输入账号名" type="text" ng-model="form.username">
     </div>
-    <form novalidate name="loginForm" class="typeahead-group" autocomplete="off">
-      <input type="username" class="underline" name="email" ng-model="email" placeholder="Email Address" required focus-on ng-keypress="username($event.which)">
-      <input type="email" class="underline" name="email" ng-model="email" placeholder="Email Address" required focus-on ng-keypress="login($event.which)">
-    </form>
-  </div>
+    <div class="loginformWrap" style="position: relative;left: -13px;">
+      密码：
+      <input placeholder="请输入6-8位数密码" type="text" ng-model="form.password">
+    </div>
+    <div class="loginformWrap submitBtn" style="position:relative;left: 10px;top:25px">
+      <input type="submit" value="submit"></input>
+    </div>
+</form>
 </div>
+<div>
+<ul>
+  <li>{{form.username}}</li>
+  <li>{{form.password}}</li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+/*登录页样式*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html{
+    height: 100%;
+}
+body{
+    background: url(../img/login_bg1.png) top center no-repeat;
+    background-size:cover;
+    height: 100%;
+}
+.loginWrap{
+    width: 600px;
+    margin: 0px auto;
+    height: 100%;
+}
+/*.loginTop{
+    width: 100%;
+    height: 123px;
+    background: url(../img/loginLogo.png) no-repeat;
+    position: relative;
+    top: 18%
+}*/ 
+.loginForm{
+    width: 100%;
+    height: 200px;
+    position: relative;
+    top: 18%;
+    margin-top: 60px;
+}
+.loginformWrap{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    color: #fff;
+    font: 14px "Microsoft Yahei";
+}
+.loginformWrap input{
+    border: 0px;
+    height: 40px;
+    width: 270px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.submitBtn.loginformWrap button{
+    color: #fff;
+    font: 14px "Microsoft Yahei";
+    border: 0px;
+    width: 280px;
+    height: 40px;
+    background-color: #499aff;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+/*<!-- .loginBottom{
+    background: url(../img/loginBottom.png) no-repeat center center ;
+    width: 100%;
+    height: 42px;
+    top: 40%;
+    position: relative;
+} -->*/
+
+form.loginForm label.error{
+    position: absolute;
+    left: 480px;
+    top: 10px;
+    color:#FF9E9E;
+}
