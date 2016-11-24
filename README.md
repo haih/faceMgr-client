@@ -1,4 +1,4 @@
-faceMgr-client
+ssm-client
 
 Update and test your code by executing the following:
 
